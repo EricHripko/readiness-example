@@ -1,0 +1,30 @@
+services:
+
+  database:
+    image: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - ./entrypoint-initdb.d:/docker-entrypoint-initdb.d/
+
+  app:
+    build:
+      context: .
+      dockerfile: app.Containerfile
+    volumes:
+      - .:/app
+    ports:
+      - 8080:8080
+    depends_on:
+      - database
+
+  test:
+    build:
+      context: .
+      dockerfile: test.Containerfile
+    volumes:
+      - .:/app
+    depends_on:
+      app:
+        condition: service_healthy

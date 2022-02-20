@@ -1,0 +1,23 @@
+{
+  "name": "readiness-example",
+  "version": "1.0.0",
+  "description": "Compose files illustrating the readiness problem and the fix for it",
+  "scripts": {
+    "serve": "node src/index.js",
+    "test": "node src/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EricHripko/readiness-example.git"
+  },
+  "author": "Eric Hripko",
+  "license": "MIT",
+  "homepage": "https://github.com/EricHripko/readiness-example#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mongodb": "^4.4.0"
+  },
+  "devDependencies": {
+    "axios": "^0.26.0"
+  }
+}
